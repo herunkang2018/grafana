@@ -281,7 +281,7 @@ export class PrometheusDatasource {
     console.log("++debug: ", query.expr);
     console.log("++debug: ", typeof(query.expr));
     
-    let lastQuery = query.expr;
+    const lastQuery = query.expr;
     // lastQuery = lastQuery.split("#")[0] + '",' +  lastQuery.split("#")[1].split(',').slice(1);
     // console.log("++debug: ", lastQuery);
 
