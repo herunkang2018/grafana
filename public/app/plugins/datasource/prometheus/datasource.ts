@@ -279,16 +279,16 @@ export class PrometheusDatasource {
     const url = '/api/v1/query_range';
 
     console.log("++debug: ", query.expr);
-    var last_query = query.expr;
+    var lastQuery = query.expr;
     // rate(ifHCInOctets{instance=~"10.10.28.1",ifAliasTest="Vlanif28#1F-north-vlan",ifAdminStatus="1"}[10m])*8
     // last_query = 'rate(ifHCInOctets{instance=~"10.10.28.1",ifAliasTest="Vlanif28#1F-north-vlan",ifAdminStatus="1"}[10m])*8';
     //'rate(ifHCOutOctets{instance=~"$ip",ifAliasTest=~"$Interface",ifAdminStatus="1",ifOperStatus="1"}[10m])*8'
-    last_query = last_query.split("#")[0] + '",' +  last_query.split("#")[1].split(',').slice(1);
+    lastQuery = lastQuery.split("#")[0] + '",' +  lastQuery.split("#")[1].split(',').slice(1);
     //"rate(ifHCInOctets{instance=~"10.10.28.1",ifAliasTest="Vlanif28",ifAdminStatus="1"}[10m])*8"
-    console.log("++debug: ", last_query);
-    
+    console.log("++debug: ", lastQuery);
+
     const data = {
-      query: last_query,
+      query: lastQuery,
       start: start,
       end: end,
       step: query.step,
